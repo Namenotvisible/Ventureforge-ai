@@ -169,5 +169,3 @@ VentureForge AI provides AI-assisted business planning and research support. Gen
 ## 📄 License
 
 This project is licensed under the MIT License.
-
-````
