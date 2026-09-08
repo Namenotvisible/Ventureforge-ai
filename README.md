@@ -1,36 +1,173 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+````
+# VentureForge AI
 
-First, run the development server:
+> AI-powered Startup Blueprint Generator built with IBM watsonx.ai, IBM Granite 4 H Small, and Retrieval-Augmented Generation (RAG).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+VentureForge AI helps early-stage founders turn a raw startup idea into a structured startup blueprint. Users provide basic startup context and receive AI-assisted insights across business strategy, customers, competitors, funding, financial planning, go-to-market strategy, and risks.
+
+##  Features
+
+-  Startup Idea Analysis
+-  Target Customer Analysis
+-  Competitor Analysis
+-  Business & Revenue Model
+-  Funding & Government Schemes
+-  Financial Planning
+-  Go-To-Market Strategy
+-  Risk Analysis
+-  Consolidated Final Blueprint
+-  Responsive Light/Dark UI
+
+##  AI & IBM Technology
+
+VentureForge AI uses:
+
+- **IBM watsonx.ai**
+- **IBM Granite 4 H Small**
+- **Retrieval-Augmented Generation (RAG)**
+
+The RAG pipeline retrieves relevant information from a curated local knowledge base before passing the contextual information to IBM Granite.
+
+### Knowledge Sources
+
+```text
+src/knowledge/
+├── startup-fundamentals.md
+├── business-models.md
+├── go-to-market.md
+├── india-startup-funding.md
+└── startup-schemes.md
+````
+
+## 🔄 How It Works
+
+```
+Startup Idea + Context
+          ↓
+     RAG Retrieval
+          ↓
+   IBM Granite 4 H Small
+          ↓
+ Structured AI Analysis
+          ↓
+ Interactive Dashboard
+          ↓
+    Final Blueprint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Financial planning uses deterministic application logic for calculations such as budget allocation, monthly burn, runway, and break-even estimates.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Frontend**
 
-## Learn More
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* shadcn/ui
+* Framer Motion
+* Zustand
+* Lucide React
 
-To learn more about Next.js, take a look at the following resources:
+**AI**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* IBM watsonx.ai
+* IBM Granite 4 H Small
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Retrieval**
 
-## Deploy on Vercel
+* Local Markdown knowledge base
+* In-process RAG
+* Relevance-based retrieval
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+ventureforge-ai/
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   ├── dashboard/
+│   │   └── page.tsx
+│   ├── components/
+│   ├── hooks/
+│   ├── knowledge/
+│   ├── lib/
+│   │   ├── rag/
+│   │   └── watsonx/
+│   └── store/
+├── .env.example
+├── components.json
+├── package.json
+├── pnpm-lock.yaml
+└── README.md
+```
+
+## ⚙️ Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/Ventureforge-ai.git
+cd Ventureforge-ai
+```
+
+### 2. Install dependencies
+
+```bash
+pnpm install
+```
+
+### 3. Configure environment variables
+
+Create a `.env.local` file:
+
+```env
+WATSONX_API_KEY=your_ibm_cloud_api_key
+WATSONX_PROJECT_ID=your_watsonx_project_id
+WATSONX_GENERATION_MODEL=ibm/granite-4-h-small
+WATSONX_URL=https://us-south.ml.cloud.ibm.com
+```
+
+> Never commit `.env.local` or expose your IBM Cloud API key.
+
+### 4. Run the application
+
+```bash
+pnpm dev
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+## 🎓 AICTE Problem Statement
+
+**Startup Blueprint Generator Agent**
+
+VentureForge AI was developed to transform raw startup ideas into structured business blueprints using generative AI, retrieval-augmented knowledge, competitor analysis, funding insights, financial planning, and go-to-market strategy.
+
+## 🔮 Future Scope
+
+Potential future improvements include:
+
+* PDF/DOCX blueprint export
+* Live market research
+* Real-time funding discovery
+* Advanced competitor intelligence
+* Persistent startup workspaces
+* Industry-specific knowledge bases
+
+## ⚠️ Disclaimer
+
+VentureForge AI provides AI-assisted business planning and research support. Generated financial estimates, market insights, funding information, and strategic recommendations should be independently verified before real-world use.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+````
