@@ -558,7 +558,7 @@ function CompetitorCards({ competitors, differentiator }: CompetitorCardsProps) 
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                    transition={{ duration: 0.2, ease: "easeInOut" as const }}
                     className="overflow-hidden"
                   >
                     <div className="mt-3 pt-3 border-t border-[var(--vf-border-subtle)] space-y-2">
