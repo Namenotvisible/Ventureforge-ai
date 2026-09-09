@@ -759,9 +759,79 @@ export default function DashboardPage() {
           title="Final Blueprint"
           description="Consolidated investor-ready report — all sections in one view."
         >
-          {blueprint ? (
-            <FinalBlueprintReport blueprint={blueprint} intakeData={intakeData} />
-          ) : (
+                    {blueprint ? (
+  <div className="space-y-5">
+    <div>
+      <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--text-muted)] mb-2">
+        Startup Overview
+      </p>
+      <Prose text={blueprint.overview} />
+    </div>
+
+    <div className="grid sm:grid-cols-2 gap-5">
+      <div>
+        <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--text-muted)] mb-2">
+          Problem & Solution
+        </p>
+        <Prose text={blueprint.problem} />
+        <div className="mt-3">
+          <Prose text={blueprint.solution} />
+        </div>
+      </div>
+
+      <div>
+        <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--text-muted)] mb-2">
+          Target Customers
+        </p>
+        <Prose text={blueprint.targetCustomers} />
+      </div>
+    </div>
+
+    <div>
+      <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--text-muted)] mb-2">
+        Competitors
+      </p>
+      <CompetitorCards
+        competitors={blueprint.competitors}
+        differentiator={blueprint.differentiator}
+      />
+    </div>
+
+    <div>
+      <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--text-muted)] mb-2">
+        Revenue Model
+      </p>
+      <Prose text={blueprint.revenueModel} />
+    </div>
+
+    <FinancialsSection
+      blueprint={blueprint}
+      intakeData={intakeData}
+    />
+
+    <GTMSection
+      blueprint={blueprint}
+      intakeData={intakeData}
+    />
+
+    <div>
+      <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--text-muted)] mb-2">
+        Key Risks
+      </p>
+      <ul className="space-y-2">
+        {blueprint.risks.map((risk, i) => (
+          <li
+            key={i}
+            className="flex items-start gap-2 text-sm text-[var(--text-secondary)]"
+          >
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--vf-accent)]" />
+            {risk}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+) : (
             <div className="rounded-xl border border-[var(--vf-border)] bg-[var(--bg-subtle)] p-6">
               <SkeletonBlock lines={8} />
             </div>
